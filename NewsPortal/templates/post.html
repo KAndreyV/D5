@@ -1,0 +1,19 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+{% load custom_tags %}
+
+{% block title %}
+Posts
+{% endblock title %}
+
+{% block content %}
+<h1>{{ post.heading|censor }}</h1>
+<h3>{% current_time '%d %b %Y' %}</h3>
+
+<hr>
+
+    {{ post.text_article|censor }}
+    Загружено:
+    {{ post.time_in|date:'d M Y' }}
+{% endblock content %}
